@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kVwqfeU6fFxJT+VRP5gWjCewoBktXAisDc4VZIFSCbR3F7AWnlPkYMlMgswPyNKLEC6+AI0JilVEM0IWLBzfJg==",
+  "dgSpecHash": "5LWp+OyOa5INyjuDaS8ztiHi+RnRvlu1Jip5/7zWfY8F8WilqTZ1qYnVdF8YU90BbbC8I/f3+OD+BH8zp07d4w==",
   "success": true,
   "projectFilePath": "D:\\UIPath\\Bot-A-Thon\\.local\\",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\abhis\\.nuget\\packages\\google.apis.gmail.v1\\1.43.0.1859\\google.apis.gmail.v1.1.43.0.1859.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\google.apis.peopleservice.v1\\1.43.0.1876\\google.apis.peopleservice.v1.1.43.0.1876.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\mailkit\\2.10.0\\mailkit.2.10.0.nupkg.sha512",
+    "C:\\Users\\abhis\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9\\microsoft.activities.extensions.2.0.6.9.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.0\\microsoft.aspnet.signalr.client.2.4.0.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.6\\microsoft.aspnetcore.connections.abstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\3.1.6\\microsoft.aspnetcore.http.connections.client.3.1.6.nupkg.sha512",
