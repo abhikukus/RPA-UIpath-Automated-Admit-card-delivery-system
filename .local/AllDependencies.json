@@ -2971,6 +2971,26 @@
           "lib/net461/UiPath.Vision.dll": {}
         }
       },
+      "UiPathTeam.StatusProgress.Activities/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.System.Activities": "20.4.0",
+          "UiPath.UIAutomation.Activities": "20.4.1"
+        },
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/UiPathTeam.StatusProgress.Activities.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
       "WindowsAzure.Storage/9.3.3": {
         "type": "package",
         "dependencies": {
@@ -5941,6 +5961,26 @@
           "lib/net461/UiPath.Vision.Microsoft.dll": {},
           "lib/net461/UiPath.Vision.Tesseract.dll": {},
           "lib/net461/UiPath.Vision.dll": {}
+        }
+      },
+      "UiPathTeam.StatusProgress.Activities/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.System.Activities": "20.4.0",
+          "UiPath.UIAutomation.Activities": "20.4.1"
+        },
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/UiPathTeam.StatusProgress.Activities.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
         }
       },
       "WindowsAzure.Storage/9.3.3": {
@@ -10416,6 +10456,25 @@
         "uipath.vision.nuspec"
       ]
     },
+    "UiPathTeam.StatusProgress.Activities/1.0.2": {
+      "sha512": "RYLuwlUrXQDXS+Kn7aJMeAKSbgn8A3KNWfnecs5D6oErGWlQF2CgZO3C1H5qhUJ5Hq5lRbwMz2wM/Gbf23bHdQ==",
+      "type": "package",
+      "path": "uipathteam.statusprogress.activities/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "contentFiles/any/any/.objects/.metadata",
+        "contentFiles/any/any/.objects/.type",
+        "lib/net45/.settings/Release/settings-1a5b880a.json",
+        "lib/net45/.settings/Release/settings-5190454b.json",
+        "lib/net45/.settings/Release/settings-590bb27b.json",
+        "lib/net45/.settings/Release/settings-9e9290da.json",
+        "lib/net45/.tmh/config.json",
+        "lib/net45/UiPathTeam.StatusProgress.Activities.dll",
+        "lib/net45/project.json",
+        "uipathteam.statusprogress.activities.1.0.2.nupkg.sha512",
+        "uipathteam.statusprogress.activities.nuspec"
+      ]
+    },
     "WindowsAzure.Storage/9.3.3": {
       "sha512": "VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
       "type": "package",
@@ -10450,7 +10509,8 @@
       "UiPath.Mail.Activities >= 1.12.3 <= 1.12.3",
       "UiPath.PDF.Activities >= 3.5.0-preview <= 3.5.0-preview",
       "UiPath.System.Activities >= 21.10.4 <= 21.10.4",
-      "UiPath.UIAutomation.Activities >= 21.10.5 <= 21.10.5"
+      "UiPath.UIAutomation.Activities >= 21.10.5 <= 21.10.5",
+      "UiPathTeam.StatusProgress.Activities >= 1.0.2 <= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -10501,6 +10561,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[21.10.5, 21.10.5]"
+          },
+          "UiPathTeam.StatusProgress.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.2, 1.0.2]"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Users\\abhis\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"

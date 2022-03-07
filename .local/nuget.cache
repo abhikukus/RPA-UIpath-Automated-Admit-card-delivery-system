@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5LWp+OyOa5INyjuDaS8ztiHi+RnRvlu1Jip5/7zWfY8F8WilqTZ1qYnVdF8YU90BbbC8I/f3+OD+BH8zp07d4w==",
+  "dgSpecHash": "EF3Uk8ArgsMYIp1tyXZ2IKj1T4M53/JDV2kgwY7q5M4oN6dVXYfLx8aJwhfgtRF6Gmtt+RGYvzC3wwMgq/A8iQ==",
   "success": true,
   "projectFilePath": "D:\\UIPath\\Bot-A-Thon\\.local\\",
   "expectedPackageFiles": [
@@ -139,6 +139,7 @@
     "C:\\Users\\abhis\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\uipath.telemetry.client.1.5.3.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.5\\uipath.uiautomation.activities.21.10.5.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\uipath.vision\\3.1.4\\uipath.vision.3.1.4.nupkg.sha512",
+    "C:\\Users\\abhis\\.nuget\\packages\\uipathteam.statusprogress.activities\\1.0.2\\uipathteam.statusprogress.activities.1.0.2.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512"
   ],
   "logs": []

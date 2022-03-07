@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1118,5951" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:maes="clr-namespace:Microsoft.Activities.Extensions.Statements;assembly=Microsoft.Activities.Extensions" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1061,7376" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:maes="clr-namespace:Microsoft.Activities.Extensions.Statements;assembly=Microsoft.Activities.Extensions" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:u="clr-namespace:UiPathTeam_StatusProgress_Activities;assembly=UiPathTeam.StatusProgress.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="57">
+    <scg:List x:TypeArguments="x:String" Capacity="63">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -58,10 +58,16 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>UiPath.PDF.Activities.PDF</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Forms.Layout</x:String>
+      <x:String>UiPathTeam_StatusProgress_Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Windows.Forms.Automation</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -100,13 +106,15 @@
       <AssemblyReference>Microsoft.Activities.Extensions</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>UiPathTeam.StatusProgress.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="859,5886" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="1071,7311" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PDFdata" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="RollNums" />
@@ -118,13 +126,16 @@
       <Variable x:TypeArguments="scg:IDictionary(x:Int32, x:String)" Default="[new Dictionary(of int32, string)]" Name="PdfNoToFilePath" />
       <Variable x:TypeArguments="sd:DataTable" Name="ExcelDataTable" />
       <Variable x:TypeArguments="x:String" Name="ExcelDataString" />
+      <Variable x:TypeArguments="swf:Form" Name="LiveStatus" />
+      <Variable x:TypeArguments="x:Double" Name="LiveProgress" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="817,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <u:Live_Status ProgressAutoClose="{x:Null}" ColorBackground="black" ColorBorder="black" ColorText="green" Container="[LiveStatus]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="1029,22" sap2010:WorkflowViewState.IdRef="Live_Status_1" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="Welcome, Getting all Admit card Pdf files..." Mobile="True" Opacity="1" Progress="0.1" Top="True" />
+    <Assign sap:VirtualizedContainerService.HintSize="1029,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[PdfFiles]</OutArgument>
       </Assign.To>
@@ -132,7 +143,7 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("D:\UIPath\MJ Problem Statement- 13 (DCoE, Ashutosh Sir, 8385850029)", "*.pdf")]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign-Initialising PdfNo" sap:VirtualizedContainerService.HintSize="817,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign-Initialising PdfNo" sap:VirtualizedContainerService.HintSize="1029,60" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[PdfNo]</OutArgument>
       </Assign.To>
@@ -140,25 +151,25 @@
         <InArgument x:TypeArguments="x:Int32">0</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="817,2370" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[PdfFiles]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1029,3053" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[PdfFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="PdfFile" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="PdfFiles Body" sap:VirtualizedContainerService.HintSize="646,2246" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="PdfFiles Body" sap:VirtualizedContainerService.HintSize="993,2929" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,2154" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="951,2837" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign sap:VirtualizedContainerService.HintSize="909,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[PdfNo]</OutArgument>
                 </Assign.To>
@@ -166,11 +177,42 @@
                   <InArgument x:TypeArguments="x:Int32">[PdfNo+1]</InArgument>
                 </Assign.Value>
               </Assign>
-              <maes:AddToDictionary x:TypeArguments="x:Int32, x:String" Dictionary="[PdfNoToFilePath]" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="562,138" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_4" Key="[PdfNo]" Value="[PdfFile.ToString]" />
-              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[PdfFile.ToString]" sap:VirtualizedContainerService.HintSize="562,59" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[PDFdata]" />
-              <ui:WriteTextFile DisplayName="Write Text File" FileName="D:\UIPath\output.txt" sap:VirtualizedContainerService.HintSize="562,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[PDFdata]" />
-              <ui:Matches BuilderPattern="(?&lt;=Roll No.: )\w+" sap:VirtualizedContainerService.HintSize="562,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[PDFdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Roll No.: )\\w+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Roll No.: )\w+" RegexOption="IgnoreCase, Compiled" Result="[RollNums]" />
-              <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <maes:AddToDictionary x:TypeArguments="x:Int32, x:String" Dictionary="[PdfNoToFilePath]" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="909,138" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_4" Key="[PdfNo]" Value="[PdfFile.ToString]" />
+              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[PdfFile.ToString]" sap:VirtualizedContainerService.HintSize="909,59" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[PDFdata]" />
+              <ui:WriteTextFile DisplayName="Write Text File" FileName="D:\UIPath\debug\output.txt" sap:VirtualizedContainerService.HintSize="909,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[PDFdata]" />
+              <Sequence DisplayName="LiveStatus_Sequence" sap:VirtualizedContainerService.HintSize="909,314" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="LiveMessage" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[LiveMessage]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">["Fetching All Roll numbers from PDF no. " + PdfNo.ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">[LiveProgress]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">0.5</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <u:Live_Status ColorText="{x:Null}" ColorBackground="black" ColorBorder="black" Container="[LiveStatus]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Live_Status_4" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="[LiveMessage]" Mobile="True" Opacity="1" Progress="[LiveProgress]" Top="True">
+                  <u:Live_Status.ProgressAutoClose>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </u:Live_Status.ProgressAutoClose>
+                </u:Live_Status>
+              </Sequence>
+              <ui:Matches BuilderPattern="(?&lt;=Roll No.: )\w+" sap:VirtualizedContainerService.HintSize="909,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[PDFdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Roll No.: )\\w+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Roll No.: )\w+" RegexOption="IgnoreCase, Compiled" Result="[RollNums]" />
+              <Assign sap:VirtualizedContainerService.HintSize="909,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[PageNo]</OutArgument>
                 </Assign.To>
@@ -178,13 +220,13 @@
                   <InArgument x:TypeArguments="x:Int32">1</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,1314" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[RollNums]">
+              <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="909,1643" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[RollNums]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="RollNum" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="ForEachRollNoBody" sap:VirtualizedContainerService.HintSize="526,1190" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence DisplayName="ForEachRollNoBody" sap:VirtualizedContainerService.HintSize="873,1519" sap2010:WorkflowViewState.IdRef="Sequence_2">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="isKeyExits" />
                       </Sequence.Variables>
@@ -193,11 +235,11 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[RollNum.ToString + &quot;      &quot; + PageNo.ToString]" />
-                      <maes:KeyExistsInDictionary x:TypeArguments="x:String, x:Int32" Dictionary="[RollNoToPageNo]" DisplayName="Key exists in dictionary" sap:VirtualizedContainerService.HintSize="484,138" sap2010:WorkflowViewState.IdRef="KeyExistsInDictionary`2_1" Key="[RollNum.ToString]" Result="[isKeyExits]" />
-                      <If Condition="[isKeyExits=False]" sap:VirtualizedContainerService.HintSize="484,719" sap2010:WorkflowViewState.IdRef="If_1">
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="831,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[RollNum.ToString + &quot;      &quot; + PageNo.ToString]" />
+                      <maes:KeyExistsInDictionary x:TypeArguments="x:String, x:Int32" Dictionary="[RollNoToPageNo]" DisplayName="Key exists in dictionary" sap:VirtualizedContainerService.HintSize="831,138" sap2010:WorkflowViewState.IdRef="KeyExistsInDictionary`2_1" Key="[RollNum.ToString]" Result="[isKeyExits]" />
+                      <If Condition="[isKeyExits=False]" sap:VirtualizedContainerService.HintSize="831,1048" sap2010:WorkflowViewState.IdRef="If_1">
                         <If.Then>
-                          <Sequence DisplayName="IfKeyExitBlock" sap:VirtualizedContainerService.HintSize="440,532" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence DisplayName="IfKeyExitBlock" sap:VirtualizedContainerService.HintSize="440,890" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="scg:List(x:Int32)" Default="[New List(of Int32)]" Name="TempList" />
                             </Sequence.Variables>
@@ -210,19 +252,83 @@
                             <AddToCollection x:TypeArguments="x:Int32" Collection="[TempList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="398,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[PdfNo]" />
                             <AddToCollection x:TypeArguments="x:Int32" Collection="[TempList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="398,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_4" Item="[PageNo]" />
                             <maes:AddToDictionary x:TypeArguments="x:String, scg:List(x:Int32)" Dictionary="[RollNoToPdfAndPage]" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="398,138" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_3" Key="[RollNum.ToString]" Value="[TempList]" />
+                            <Sequence DisplayName="LiveStatus_Sequence" sap:VirtualizedContainerService.HintSize="398,318" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="LiveMessage" />
+                                <Variable x:TypeArguments="x:Double" Name="LiveProgress" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[LiveMessage]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["Storing " + RollNum.ToString + " from PDF number : " +PdfNo.ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Double">[LiveProgress]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Double">0.5</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <u:Live_Status ColorText="{x:Null}" ColorBackground="black" ColorBorder="black" Container="[LiveStatus]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Live_Status_2" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="[LiveMessage]" Mobile="True" Opacity="1" Progress="[LiveProgress]" Top="True">
+                                <u:Live_Status.ProgressAutoClose>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </u:Live_Status.ProgressAutoClose>
+                              </u:Live_Status>
+                            </Sequence>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <Sequence sap:VirtualizedContainerService.HintSize="346,406" sap2010:WorkflowViewState.IdRef="Sequence_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="LiveStatus_Sequence" sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="LiveMessage" />
+                                <Variable x:TypeArguments="x:Double" Name="LiveProgress" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[LiveMessage]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["Skipping  " + RollNum.ToString + " from Duplicate Admit card "]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Double">[LiveProgress]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Double">0.5</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <u:Live_Status ColorText="{x:Null}" ColorBackground="black" ColorBorder="black" Container="[LiveStatus]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Live_Status_5" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="[LiveMessage]" Mobile="True" Opacity="1" Progress="[LiveProgress]" Top="True">
+                                <u:Live_Status.ProgressAutoClose>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </u:Live_Status.ProgressAutoClose>
+                              </u:Live_Status>
+                            </Sequence>
                           </Sequence>
                         </If.Else>
                       </If>
-                      <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign sap:VirtualizedContainerService.HintSize="831,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">[PageNo]</OutArgument>
                         </Assign.To>
@@ -239,41 +345,59 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="817,277" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[RollNoToPageNo]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1029,854" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518,776" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Debug_Sequence" sap:VirtualizedContainerService.HintSize="476,684" sap2010:WorkflowViewState.IdRef="Sequence_20">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[item.ToString]" />
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,276" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[RollNoToPageNo]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[item.ToString]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,276" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[RollNoToPdfAndPage.Keys]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="DicKey" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[DicKey.ToString + &quot;     &quot; + RollNoToPdfAndPage(Dickey.ToString)(0).ToString + &quot;    &quot;  +  RollNoToPdfAndPage(Dickey.ToString)(1).ToString + &quot;     &quot; + PdfNoToFilePath(RollNoToPdfAndPage(Dickey.ToString)(0))]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
           </Sequence>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="817,277" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[RollNoToPdfAndPage.Keys]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="DicKey" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_8">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[DicKey.ToString + &quot;     &quot; + RollNoToPdfAndPage(Dickey.ToString)(0).ToString + &quot;    &quot;  +  RollNoToPdfAndPage(Dickey.ToString)(1).ToString + &quot;     &quot; + PdfNoToFilePath(RollNoToPdfAndPage(Dickey.ToString)(0))]" />
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
-    <Sequence DisplayName="Sequence_ExtractExcelData" sap:VirtualizedContainerService.HintSize="817,673" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <Sequence DisplayName="Sequence_ExtractExcelData" sap:VirtualizedContainerService.HintSize="1029,572" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -304,29 +428,28 @@
         </ui:ExcelApplicationScope.Body>
       </ui:ExcelApplicationScope>
       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[ExcelDataString]" />
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[ExcelDataTable.Rows(1).Item(&quot;Email id&quot;).ToString]" />
     </Sequence>
-    <Sequence DisplayName="Sequence_SendEmail" sap:VirtualizedContainerService.HintSize="817,1837" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Sequence_SendEmail" sap:VirtualizedContainerService.HintSize="1029,2358" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExcelDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="775,1745" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExcelDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="775,2266" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="741,1625" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="741,2146" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[CurrentRow(2).ToString  &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="699,1533" sap2010:WorkflowViewState.IdRef="If_2">
+              <If Condition="[CurrentRow(2).ToString  &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="699,2054" sap2010:WorkflowViewState.IdRef="If_2">
                 <If.Then>
-                  <Sequence DisplayName="Sequence_CurrentRowInExcel" sap:VirtualizedContainerService.HintSize="663,1346" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Sequence_CurrentRowInExcel" sap:VirtualizedContainerService.HintSize="663,1867" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Name="PageCount" />
                       <Variable x:TypeArguments="x:String" Name="PdfOriginalPath" />
@@ -379,15 +502,56 @@
                       </If.Else>
                     </If>
                     <upap:ExtractPDFPageRange DisplayName="Extract PDF Page Range" FileName="[PdfNoToFilePath(RollNoToPdfAndPage(CurrentRow(2).ToString)(0))]" sap:VirtualizedContainerService.HintSize="621,87" sap2010:WorkflowViewState.IdRef="ExtractPDFPageRange_2" OutputFileName="[&quot;D:\UIPath\Output\Duplicate\&quot;+&quot;Duplicate-&quot;+CurrentRow(2).ToString+&quot;.pdf&quot;]" Range="[(PageCount/2 + RollNoToPdfAndPage(CurrentRow(2).ToString)(1)).ToString]" />
-                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="BotAThon-Team-IESians" DisplayName="Send SMTP Mail Message" Email="pat31.khata@gmail.com" EnableSSL="True" From="pat31.khata@gmail.com" sap:VirtualizedContainerService.HintSize="621,148" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Abhishek" Password="moe@pat31" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[&quot;This is your Admit card &quot; + CurrentRow(2).ToString]" To="[CurrentRow(5).ToString]">
-                      <ui:SendMail.Files>
-                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                          <InArgument x:TypeArguments="x:String">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PdfOriginalPath" />
-                          </InArgument>
-                        </scg:List>
-                      </ui:SendMail.Files>
-                    </ui:SendMail>
+                    <Sequence DisplayName="LiveStatus_Sequence" sap:VirtualizedContainerService.HintSize="621,314" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="LiveMessage" />
+                        <Variable x:TypeArguments="x:Double" Name="LiveProgress" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[LiveMessage]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["Mailing Admit Card of " + CurrentRow(2).ToString + " to " +CurrentRow(5).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Double">[LiveProgress]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Double">0.8</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <u:Live_Status ColorText="{x:Null}" ColorBackground="black" ColorBorder="black" Container="[LiveStatus]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Live_Status_3" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="[LiveMessage]" Mobile="True" Opacity="1" Progress="[LiveProgress]" Top="True">
+                        <u:Live_Status.ProgressAutoClose>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </u:Live_Status.ProgressAutoClose>
+                      </u:Live_Status>
+                    </Sequence>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="621,315" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="BotAThon-Team-IESians" DisplayName="Send SMTP Mail Message" Email="pat31.khata@gmail.com" EnableSSL="True" From="pat31.khata@gmail.com" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Team IESian" Password="moe@pat31" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[&quot;This is your Admit card &quot; + CurrentRow(2).ToString]" To="[CurrentRow(5).ToString]">
+                            <ui:SendMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[PdfOriginalPath]</InArgument>
+                              </scg:List>
+                            </ui:SendMail.Files>
+                          </ui:SendMail>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                    </ui:CommentOut>
                   </Sequence>
                 </If.Then>
                 <If.Else>
