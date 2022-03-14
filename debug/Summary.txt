@@ -1,8 +1,0 @@
-Successfully Mailed Admit Cards : 20
-Failed to send Admit cards : 3
-
-Following are the details of failed Emails
-
-21.   0155CS569    Abhishek    Error@gmail.com
-22.   0177CS789    Amit    
-23.   0188CS456    Aman    amanmail@gmail.com
