@@ -5,7 +5,6 @@ Automated Admit Card delivery system is a RPA (Robotic Process Automation) bot w
 ## Running the bot
 
 - Install UIpath and all mention [dependencies](#dependencies) and open main.xaml file in UIpath. Hit run button.
-- Demo video [here](https://youtu.be/Ou5LJWAjDvM)
 
 ## Technologies Used
 
