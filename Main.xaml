@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1739,9736" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:maes="clr-namespace:Microsoft.Activities.Extensions.Statements;assembly=Microsoft.Activities.Extensions" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:u="clr-namespace:UiPathTeam_StatusProgress_Activities;assembly=UiPathTeam.StatusProgress.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1739,10208" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:maes="clr-namespace:Microsoft.Activities.Extensions.Statements;assembly=Microsoft.Activities.Extensions" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:u="clr-namespace:UiPathTeam_StatusProgress_Activities;assembly=UiPathTeam.StatusProgress.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="65">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -66,6 +66,7 @@
       <x:String>System.Windows.Forms.Automation</x:String>
       <x:String>CredentialManagement</x:String>
       <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -116,7 +117,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -124,7 +125,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main_Sequence" sap:VirtualizedContainerService.HintSize="1749,9671" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_Sequence" sap:VirtualizedContainerService.HintSize="1749,10097" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PDFdata" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="RollNums" />
@@ -455,7 +456,7 @@ vbNewLine +
       </ui:ExcelApplicationScope>
       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[ExcelDataString]" />
     </Sequence>
-    <Sequence DisplayName="Sequence_SendEmail" sap:VirtualizedContainerService.HintSize="1707,4387" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Sequence_SendEmail" sap:VirtualizedContainerService.HintSize="1707,4813" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ErrorMsg" />
         <Variable x:TypeArguments="x:Int32" Name="ErrorCount" />
@@ -483,14 +484,14 @@ vbNewLine +
           <InArgument x:TypeArguments="x:String">[""]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:BuildDataTable DataTable="[ErrorDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1665,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;S._x0020_No.&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name_x0020_of_x0020_Students&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Registration_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Mobile_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Branch&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Year&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Email_x0020_Id&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ErrorType&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExcelDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1665,2816" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:BuildDataTable DataTable="[ErrorDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1665,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;S._x0020_No.&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name_x0020_of_x0020_Students&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Registration_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Mobile_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Branch&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Year&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Email_x0020_Id&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ErrorType&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExcelDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1665,3242" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="ForEachRowInDataTable_Body" sap:VirtualizedContainerService.HintSize="1631,2696" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="ForEachRowInDataTable_Body" sap:VirtualizedContainerService.HintSize="1631,3122" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="IsRollNoPresent" />
                 <Variable x:TypeArguments="x:Boolean" Name="IsEmailValid" />
@@ -502,17 +503,17 @@ vbNewLine +
               </sap:WorkflowViewStateService.ViewState>
               <maes:KeyExistsInDictionary x:TypeArguments="x:String, scg:List(x:Int32)" Dictionary="[RollNoToPdfAndPage]" DisplayName="Key exists in dictionary" sap:VirtualizedContainerService.HintSize="1589,138" sap2010:WorkflowViewState.IdRef="KeyExistsInDictionary`2_2" Key="[CurrentRow(2).ToString]" Result="[IsRollNoPresent]" />
               <ui:IsMatch BuilderPattern="\w+@" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="1589,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[&quot;&quot;+CurrentRow(6).ToString+&quot;&quot;]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\w+@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" RegexOption="IgnoreCase, Compiled" Result="[IsEmailValid]" />
-              <If Condition="[IsEmailValid = True]" sap:VirtualizedContainerService.HintSize="1589,2327" sap2010:WorkflowViewState.IdRef="If_4">
+              <If Condition="[IsEmailValid = True]" sap:VirtualizedContainerService.HintSize="1589,2753" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="1126,2169" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1126,2595" sap2010:WorkflowViewState.IdRef="Sequence_33">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[IsRollNoPresent = True]" sap:VirtualizedContainerService.HintSize="1084,2077" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[IsRollNoPresent = True]" sap:VirtualizedContainerService.HintSize="1084,2503" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence DisplayName="Sequence_CurrentRowInExcel" sap:VirtualizedContainerService.HintSize="663,1919" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="Sequence_CurrentRowInExcel" sap:VirtualizedContainerService.HintSize="663,2345" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Int32" Name="PageCount" />
                             <Variable x:TypeArguments="x:String" Name="PdfOriginalPath" />
@@ -597,15 +598,29 @@ vbNewLine +
                               </u:Live_Status.ProgressAutoClose>
                             </u:Live_Status>
                           </Sequence>
-                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="621,464" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="621,890" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                             <TryCatch.Try>
-                              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Dear Student, &quot; + vbNewLine +&#xD;&#xA;&quot;Download your Admit card &quot; + CurrentRow(2).ToString + &quot; from below.&quot; + vbNewLine  + vbNewLine +&#xD;&#xA;&quot;Instructions to Students: &quot;+ vbNewLine +&#xD;&#xA;&quot;1. Students have to enter examination hall before 15 minutes of starting of the examination.&quot;+ vbNewLine +&#xD;&#xA;&quot;2. Nobody will be allowed to enter after commencement of examination.&quot;+ vbNewLine +&#xD;&#xA;&quot;3. Mobile phone, smart watch and any other electronic device will not be allowed in exam hall. &quot;]" DisplayName="Send SMTP Mail Message" Email="pat31.khata@gmail.com" EnableSSL="True" From="pat31.khata@gmail.com" sap:VirtualizedContainerService.HintSize="334,237" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="DCoE Office" Password="moe@pat31" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Admit Card" To="[CurrentRow(6).ToString]">
-                                <ui:SendMail.Files>
-                                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                                    <InArgument x:TypeArguments="x:String">[PdfOriginalPath]</InArgument>
-                                  </scg:List>
-                                </ui:SendMail.Files>
-                              </ui:SendMail>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,663" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="EmailPassword" />
+                                  <Variable x:TypeArguments="x:String" Name="Email_secure" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARaKvgZ2kbUO5v3jj11KkqAAAAAACAAAAAAAQZgAAAAEAACAAAABS41a5g5RN/DCHT5AP+HKuBag1HfX68x/vUxkTUzWBVwAAAAAOgAAAAAIAACAAAAAm26rI31cSTmKYNbHniQe3dYyNClkZZErlrSQEG3QGnhAAAAAd+ImbD8oJyZLsneyU22NBQAAAAEIZkZZdRXf2hhL3/QO/ybDRoKJOt7oH+k2FaBZjaSHT5cXEN+HKoJHIBCkkyy3TTOxi/JuWTFslBboqvKp+OSo=" Result="[EmailPassword]" />
+                                <ui:GetPassword DisplayName="Email_Secure_Get Password" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetPassword_2" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARaKvgZ2kbUO5v3jj11KkqAAAAAACAAAAAAAQZgAAAAEAACAAAADCe7rlg/Q5/1+1ByamFKKBjOmvkI8spy61w8lID3tXFAAAAAAOgAAAAAIAACAAAADde9q3CRRTb2UfJR126jkbLbXRETbJ5IUtHo2r6DFyyiAAAADdgdRpIQ6PokSKPY5U8Jv5pXt0FGKebFGN3hMSCbgFGUAAAABJ89XkGNShVWK2ahEnrdRig2BlmoMUUVV/cAIe9RndPYO1BBKIHZoymGnncIRNTmNinKbrQRYselCmmWzBTlRm" Result="[Email_secure]" />
+                                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Dear &quot; + CurrentRow(1).ToString +&quot; , &quot;+ vbNewLine +&#xA;&quot;Download your Admit card &quot; + CurrentRow(2).ToString + &quot; from below.&quot; + vbNewLine  + vbNewLine +&#xA;&quot;Instructions to Students: &quot;+ vbNewLine +&#xA;&quot;1. Students have to enter examination hall before 15 minutes of starting of the examination.&quot;+ vbNewLine +&#xA;&quot;2. Nobody will be allowed to enter after commencement of examination.&quot;+ vbNewLine +&#xA;&quot;3. Mobile phone, smart watch and any other electronic device will not be allowed in exam hall. &quot;]" DisplayName="Send SMTP Mail Message" Email="[Email_secure]" EnableSSL="True" From="[Email_secure]" sap:VirtualizedContainerService.HintSize="334,222" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="DCoE Office" Password="[EmailPassword]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Admit Card" To="[CurrentRow(6).ToString]">
+                                  <ui:SendMail.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                      <InArgument x:TypeArguments="x:String">[PdfOriginalPath]</InArgument>
+                                    </scg:List>
+                                  </ui:SendMail.Files>
+                                </ui:SendMail>
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString,&quot;SUCCESS&quot; ,&quot;&quot; }]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
+                              </Sequence>
                             </TryCatch.Try>
                             <TryCatch.Catches>
                               <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
@@ -619,7 +634,7 @@ vbNewLine +
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                   </ActivityAction.Argument>
-                                  <Sequence DisplayName="MailFailTryCatch_Sequence" sap:VirtualizedContainerService.HintSize="376,481" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                  <Sequence DisplayName="MailFailTryCatch_Sequence" sap:VirtualizedContainerService.HintSize="376,478" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -642,7 +657,7 @@ vbNewLine +
 CurrentRow(0).ToString + ".   "+CurrentRow(2).ToString+"    "+CurrentRow(1).ToString+"    "+ CurrentRow(6).ToString]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString, &quot;Bad Network&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString,&quot;FAIL&quot; ,&quot;Bad Network&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                   </Sequence>
                                 </ActivityAction>
                               </Catch>
@@ -674,7 +689,7 @@ CurrentRow(0).ToString + ".   "+CurrentRow(2).ToString+"    "+CurrentRow(1).ToSt
 CurrentRow(0).ToString + ".   "+CurrentRow(2).ToString+"    "+CurrentRow(1).ToString+"    "+ CurrentRow(6).ToString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString, &quot;Roll No. does not exits&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString, &quot;FAIL&quot; , &quot;Roll No. does not exits&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                         </Sequence>
                       </If.Else>
                     </If>
@@ -710,7 +725,7 @@ CurrentRow(0).ToString + ".   "+CurrentRow(2).ToString+"    "+CurrentRow(1).ToSt
 CurrentRow(0).ToString + ".   "+CurrentRow(2).ToString+"    "+CurrentRow(1).ToString+"    "+ CurrentRow(6).ToString]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString, &quot;Invalid Email&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString , CurrentRow(1).ToString , CurrentRow(2).ToString ,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(6).ToString,&quot;FAIL&quot; ,&quot;Invalid Email&quot;}]" DataTable="[ErrorDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
                     </Sequence>
                   </Sequence>
                 </If.Else>
